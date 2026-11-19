@@ -24,8 +24,14 @@ const server = http.createServer((req, res) => {
 
   // TODO: add GET /api/me here
   if (req.method === "GET" && req.url === "/api/me") {
-    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-    res.end("<h1>Hello, 953261!</h1><p>My name is Keattisak Namnaul (student ID 692115006)</p>");
+    const obj = {
+      name: "Keattisak Namnaul",
+      studentId: "692115006",
+      favouriteLanguage: "JavaScript"
+    };
+
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(obj));
     return;
   }
 
